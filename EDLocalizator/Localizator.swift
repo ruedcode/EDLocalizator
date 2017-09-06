@@ -59,7 +59,7 @@ extension String : PropertyStoring {
 		static var isLocalized = false
 	}
 
-	var isLocalized: Bool {
+	public var isLocalized: Bool {
 		get {
 			return getAssociatedObject(&CustomProperties.isLocalized, defaultValue: CustomProperties.isLocalized)
 		}
@@ -68,7 +68,7 @@ extension String : PropertyStoring {
 		}
 	}
 
-	var localized : String {
+	public var localized : String {
 		get {
 			if !isLocalized {
 				return Localizator.sharedInstance.localize(string: self)
@@ -77,7 +77,7 @@ extension String : PropertyStoring {
 		}
 	}
 
-	func localized(_ args:CVarArg...) -> String {
+	public func localized(_ args:CVarArg...) -> String {
 
 		return String(format: self.localized, arguments:args)
 	}
